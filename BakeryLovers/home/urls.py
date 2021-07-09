@@ -20,4 +20,5 @@ from . import views
 
 urlpatterns = [
     path('', views.home),
+    path('pdftest', views.pdftest),
 ]
