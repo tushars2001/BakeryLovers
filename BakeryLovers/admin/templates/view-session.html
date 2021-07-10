@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin View Session</title>
+</head>
+<body>
+{% include 'admin_menu.html' %}
+<h1>View Session</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Session ID</th>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Fee</th>
+            <th>Details</th>
+            <th>View Students</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for session in data.data.session_details %}
+            <tr>
+                <td>{{session.sessionid}}</td>
+                <td>{{session.title}}</td>
+                <td>{{session.startdt}}</td>
+                <td>{{session.enddt}}</td>
+                <td>{{session.fee}}</td>
+                <td>{{session.details}}</td>
+                <td>
+                    <form method="post" action="/administration/view-session-students/">
+                        {% csrf_token %}
+                        <input type="hidden" name="sessionid" value="{{session.sessionid}}">
+                        <button type="submit">View Students</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

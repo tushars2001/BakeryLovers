@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Completed Courses</title>
+</head>
+<body>
+{% include 'auth_menu.html' %}
+<h1>My Completed Courses</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Details</th>
+            <th>Download Certificate</th>
+            <th>Watch Video</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for session in data.data.session_details %}
+            <tr>
+                <td>{{session.title}}</td>
+                <td>{{session.startdt}}</td>
+                <td>{{session.enddt}}</td>
+                <td>{{session.details}}</td>
+                <td>
+                    <form method="post" action="/my/certificate/">
+                        {% csrf_token %}
+                        <input type="hidden" name="first_name" value="{{user.first_name}}">
+                        <input type="hidden" name="last_name" value="{{user.last_name}}">
+                        <input type="hidden" name="username" value="{{user.username}}">
+                        <input type="hidden" name="enddt" value="{{session.enddt}}">
+                        <input type="hidden" name="title" value="{{session.title}}">
+                        <button type="submit">Download Certificate</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

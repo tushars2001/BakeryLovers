@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin View Session</title>
+</head>
+<body>
+{% include 'admin_menu.html' %}
+<h2>{{ret.message}}</h2>
+<h1>Select Session to Assign Students</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Session ID</th>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Fee</th>
+            <th>Details</th>
+            <th>Select</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for session in data.data.session_details %}
+            <tr>
+                <td>{{session.sessionid}}</td>
+                <td>{{session.title}}</td>
+                <td>{{session.startdt}}</td>
+                <td>{{session.enddt}}</td>
+                <td>{{session.fee}}</td>
+                <td>{{session.details}}</td>
+                <td>
+                    <form method="post" action="assign-students/">
+                        {% csrf_token %}
+                        <input type="hidden" name="sessionid" value="{{session.sessionid}}">
+                        <input type="hidden" name="title" value="{{session.title}}">
+                        <button type="submit">Select Session</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

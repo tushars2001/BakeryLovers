@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin View Session</title>
+</head>
+<body>
+{% include 'admin_menu.html' %}
+<h1>Assign Students to Session : {{title}}</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Select</th>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Date Joined</th>
+            <th>Is Staff</th>
+            <th>Is Active</th>
+        </tr>
+    </thead>
+    <tbody>
+    <form action="session-students/" method="post">
+    {% csrf_token %}
+        {% for account in data.data.account_details %}
+            <tr>
+                <td>
+                        <input type="checkbox" name="username" value="{{account.username}}">
+                        <input type="hidden" name="sessionid">
+                </td>
+                <td>{{account.username}}</td>
+                <td>{{account.first_name}}</td>
+                <td>{{account.last_name}}</td>
+                <td>{{account.email}}</td>
+                <td>{{account.date_joined}}</td>
+                <td>{{account.is_staff}}</td>
+                <td>{{account.is_active}}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td>
+                <input type="hidden" name="sessionid" value="{{sessionid}}">
+                <button type="submit">Assign Students</button>
+            </td>
+        </tr>
+    </form>
+    </tbody>
+</table>
+
+</body>
+</html>

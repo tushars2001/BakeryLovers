@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Create Session</title>
+    <script>
+        function validateCreateSession(){
+            if (new Date(document.forms[0].enddt.value) < new Date(document.forms[0].startdt.value)){
+                alert("End Date must be ahead of start Date");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+{% include 'admin_menu.html' %}
+<h1>Create Session</h1>
+{{ ret.message }}
+<form action="" method="post">
+{% csrf_token %}
+    <table>
+        <tr>
+            <td>Title</td>
+            <td><input type="text" required name="title"></td>
+        </tr>
+        <tr>
+            <td>Start Date</td>
+            <td><input type="date" required name="startdt"></td>
+        </tr>
+        <tr>
+            <td>End Date</td>
+            <td><input type="date" required name="enddt"></td>
+        </tr>
+        <tr>
+            <td>Details</td>
+            <td><textarea name="details" rows="4" cols="50"></textarea></td>
+        </tr>
+        <tr>
+            <td>Fee</td>
+            <td><input name="fee" type="number" min="0" size="20"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit" onclick="return validateCreateSession()">Create</button> </td>
+        </tr>
+    </table>
+
+
+</form>
+</body>
+</html>

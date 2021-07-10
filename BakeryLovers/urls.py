@@ -16,8 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import path, include, re_path
+from .auth.views import logout, login_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('BakeryLovers.home.urls')),
+    path('administration/', include('BakeryLovers.admin.urls')),
+    path('login/', login_user),
+    path('auth/', include('BakeryLovers.auth.urls')),
+    path('my-account/', include('BakeryLovers.auth.urls')),
+    path('my/', include('BakeryLovers.auth.urls')),
+    path('logout/', logout),
 ]

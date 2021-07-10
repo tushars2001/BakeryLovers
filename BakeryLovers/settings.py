@@ -58,6 +58,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, "BakeryLovers/home/templates"),
+            os.path.join(BASE_DIR, "BakeryLovers/admin/templates"),
+            os.path.join(BASE_DIR, "BakeryLovers/auth/templates"),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -133,8 +135,13 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_DIR, 'staticfiles'),
+)
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'

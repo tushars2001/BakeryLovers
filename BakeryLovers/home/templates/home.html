@@ -1,32 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Bakery Lovers</title>
-</head>
-<body>
-    <h1>Bakery Lovers by Richa</h1>
-    <form method="post" action="pdftest">
-        {% csrf_token %}
-    <table>
-        <tr>
-            <td>First Name:</td>
-            <td><input type="text" name="fname"></td>
-            <td>Last Name:</td>
-            <td><input type="text" name="lname"></td>
-        </tr>
-        <tr>
-            <td>Course:</td>
-            <td><input type="text" name="course"></td>
-        </tr>
-        <tr>
-            <td>Date:</td>
-            <td><input type="text" name="dt"></td>
-        </tr>
-        <tr>
-            <td colspan="2"><button type="submit">Get Certificate</button></td>
-        </tr>
-    </table>
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+
+{% endblock %}
