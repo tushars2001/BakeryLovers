@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 import io
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
@@ -72,3 +72,22 @@ def pdftest(request):
     buffer.seek(0)
     return FileResponse(buffer, as_attachment=True, filename='barekyLovers_certificate_'+fname+'.pdf')
 
+
+def upcoming_classes(request):
+    return HttpResponse(content="This section will be updated soon. Please check back later.")
+
+
+def past_classes(request):
+    return HttpResponse(content="This section will be updated soon. Please check back later.")
+
+
+def view_gallery(request):
+    return HttpResponse(content="This section will be updated soon. Please check back later.")
+
+
+def about(request):
+    return HttpResponse(content="This section will be updated soon. Please check back later.")
+
+
+def contact(request):
+    return HttpResponse(content="This section will be updated soon. Please check back later.")

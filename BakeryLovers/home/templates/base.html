@@ -82,7 +82,7 @@
     <body>
          <header>
           <!-- Fixed navbar -->
-          <nav id="main-navbar" class="navbar navbar-expand-md  fixed-top tricolor">
+          <nav id="main-navbar" class="navbar navbar-expand-md  fixed-top">
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -90,133 +90,41 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <ul class="navbar-nav mr-auto">
               <li class="nav-item dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Shop By Department</span> </a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Classes</span> </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <!--{% for row in categories %}
-                        <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category={{row.name}}">{{row.name}}</a></li>
-                    {% endfor %}-->
                     <li class="dropdown-submenu">
 
-                       <a class="dropdown-item dropdown-toggle" href="#">Electronics</a>
-                        <ul class="dropdown-menu">
-                            <!--<li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Electronics#searchResultsA">All</a></li>-->
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=mobiles#searchResultsA">Mobiles</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=TVs#searchResultsA">TVs</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Washing Machines#searchResultsA">Washing Machines</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Kitchen Appliances#searchResultsA">Kitchen Appliance</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Air Conditioners#searchResultsA">Air Conditioners</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Refrigerators#searchResultsA">Refrigerators</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Electronics Home#searchResultsA">Home</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Medical Devices#searchResultsA">Medical Devices</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Microwaves#searchResultsA">Microwaves</a></li>
-                        </ul>
-                    </li>
+                    <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/classes/upcoming/">Upcoming Classes</a></li>
 
-                    <li class="dropdown-submenu">
-                       <a class="dropdown-item dropdown-toggle" href="#">Fashion</a>
-                        <ul class="dropdown-menu">
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Watches for Men#searchResultsA">Watches for Men</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Watches for Women#searchResultsA">Watches for Women</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Wallets for Men#searchResultsA">Wallets for Men</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Purses and Handbags for Women#searchResultsA">Purses, Handbags for Women</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=jewelry#searchResultsA">Jewelry</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=footwear#searchResultsA">Footwear</a></li>
-                        </ul>
-                    </li>
+                    <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/classes/past/">Past Classes</a></li>
 
-                    <!--<li class="dropdown-submenu">
-                       <a class="dropdown-item dropdown-toggle" href="#">General Store</a>
-                        <ul class="dropdown-menu">
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=%&tags=teeth%20care,toothpaste,2Ctoothbrush,soap,shampoo,shaving,Fragrance&tags_filter=1">All</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?search=toothpaste&tags=teeth%20care,toothpaste&tags_filter=1&categories=&brands=#searchResultsA">Toothpastes</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?search=toothbrush&tags=teeth+care%2Ctoothbrush&tags_filter=1&brands=&categories=#searchResultsA">Toothbrushes</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?search=soap, soaps&tags=soap,soaps&tags_filter=1&brands=&categories=#searchResultsA">Soaps</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?search=shampoo&tags=shampoo&tags_filter=1">Shampoo</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?search=shaving needs&tags=shaving&tags_filter=1#searchResultsA">Shaving Needs</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?search=Fragrance&tags=Fragrance&tags_filter=1#searchResultsA">Fragrance</a></li>
-                        </ul>
-                    </li>-->
-
-                    <li class="dropdown-submenu">
-                       <a class="dropdown-item dropdown-toggle" href="#">Personal Care</a>
-                        <ul class="dropdown-menu">
-                            <!--<li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=%&tags=skin%20care,hair+care,teeth+care,shaving,Fragrance&tags_filter=1">All</a></li>-->
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Skin Care#searchResultsA">Skin Care</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=%&tags=hair,beared&categories=43,46,44,52#searchResultsA">Hair Care</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Teeth Care#searchResultsA">Teeth Care</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=shaving needs#searchResultsA">Shaving Needs</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Soaps and Shampoos#searchResultsA">Soaps and Shampoos</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Fragrances#searchResultsA">Fragrances</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown-submenu">
-                       <a class="dropdown-item dropdown-toggle" href="#">Home</a>
-                        <ul class="dropdown-menu">
-                            <!--<li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=%&tags=painting,poster,wall,wall%20decor,lamps%2Clighting%2Clights,showpiece,painting,fans,Furniture,water+purifier&tags_filter=1">All</a></li>-->
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?search=Wall Decor#searchResultsA">Wall Decor</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Lighting#searchResultsA">Lighting</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=%&tags=Showpiece#searchResultsA">Showpieces</a></li>
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?search=painting#searchResultsA">Paintings</a></li>
-                            <!--<li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?search=fans&tags=fans&tags_filter=1#searchResultsA">Fans</a></li>-->
-                            <!--<li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Furniture#searchResultsA">Furniture</a></li>-->
-                            <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Water Purifires#searchResultsA">Water Purifiers</a></li>
-                        </ul>
-                    </li>
-
-                    <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Bhartiya Arts#searchResultsA">Bhartiya Arts</a></li>
-
-                    <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Bhartiya Crafts#searchResultsA">Bhartiya Crafts</a></li>
-
-                    <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?search=gifts#searchResultsA">Gifts</a></li>
-
-                    <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Toys#searchResultsA">Toys</a></li>
-
-                    <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Herbal/Ayurveda#searchResultsA">Herbal/Ayurveda</a></li>
-                    <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a class="dropdown-item" href="/?category=Sports#searchResultsA">Sports</a></li>
-                    <!--<li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a href="/?search=watches+for+men&tags=watch&brands=&categories=12%2C13#searchResultsA">Watches for Men</a></li>
-                    <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a href="/?search=watches+for+women&tags=&brands=&categories=13%2C12#searchResultsA">Watches for Women</a></li>
-                    <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a href="/?search=wallets+for+men&tags=wallet&brands=&categories=13%2C12#searchResultsA">Wallets for Men</a></li>
-                    <li style="margin-left:5px;margin-bottom:5px;margin-top:5px;"><a href="/?search=handbags+for+woman&tags=handbag&brands=&categories=#searchResultsA">Purses, Handbags for Women</a></li>
-                    -->
                 </ul>
             </li>
-                <!--<li class="nav-item">
-                  <a class="nav-link" href="#">Help us Grow: Add Indian Product</a>
-                </li>-->
-
+                <li class="nav-item">
+                  <span class="nav-link"><a href="/gallery/view/">Gallery</a></span>
+                </li>
                  {% if user.is_authenticated %}
                   {% if user.is_staff %}
                     <li class="nav-item">
-                      <span class="nav-link"> <a href="/admin/">Admin</a> </span>
+                      <span class="nav-link"> <a href="/administration/">Admin</a> </span>
                     </li>
                   {% endif %}
                   <li class="nav-item">
-                      <span class="nav-link"> <a href="/user/">Hi {{user.first_name}}!</a> </span>
+                      <span class="nav-link"> <a href="/my/">Hi {{user.first_name}}!</a> </span>
                     </li>
                      <li class="nav-item">
-                      <span class="nav-link"> <a href="/identity/logout/">Logout</a> </span>
+                      <span class="nav-link"> <a href="/logout/">Logout</a> </span>
                     </li>
                   {% else %}
                     <li class="nav-item">
-                      <span class="nav-link" onclick='$("#signup-form").fadeIn("slow", function(){})'>Login</span>
+                      <span class="nav-link"><a href="/login/">Login</a></span>
                     </li>
-                    <!--<li class="nav-item">
-                      <span class="nav-link"> <a href="/accounts/login/">Login</a> </span>
-                    </li>-->
 
                   {% endif %}
 
-                <!-- <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>-->
               </ul>
-              <!--<form class="form-inline mt-2 mt-md-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Indian Products" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>-->
             </div>
-              <a class="navbar-brand" href="/">Kewal-India</a>
+              <a class="navbar-brand" href="/"><img src="{% static 'bakery_logo.png' %}"></a>
           </nav>
         </header>
 
@@ -225,125 +133,28 @@
         {% block content %}
         {% endblock %}
         </div>
-
-        <footer class="mt-auto fixed-bottom" id="fixed_social" onclick='$("#signup-form").fadeOut("slow", function(){})' style="background-color:white;border-top:1px solid black">
+        <footer class="footer mt-auto py-3" onclick='$("#signup-form").fadeOut("slow", function(){})'>
           <div class="container">
             <div class="row top-buffer justify-content-center">
-                {% if not user.is_authenticated %}
-                <div class="col-6 my-auto">
-                    <span>
-                        <img src="{% static 'images/google_sign_in.png' %}" width="150px" height="30px">
-                     </span>
-                </div>
-                <div class="col-6 my-auto">
-                    <div id="social_share_page" class="row justify-content-end" style="margin-right:10px">
-                        <span id="social_buttons" style="display:none">
-                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://kewalindia.com/">
-                                <img src="{% static 'images/fb_small.png' %}">
-                            </a>
-                            <a target="_blank" href="https://twitter.com/intent/tweet?text=Spread Vocal for Local Movement. &url=https://kewalindia.com/">
-                                <img src="{% static 'images/tw_small.png' %}">
-                            </a>
-                            <a target="_blank" style="margin-right:2px" href="whatsapp://send?text=Spread Vocal for Local Movement. https://kewalindia.com/">
-                                <img src="{% static 'images/wa_small.png' %}">
-                            </a>
-                        </span>
-                        <span onclick="$('#social_buttons').toggle('slow', function(){})" ><img src="{% static 'images/social_share.png' %}"></span>
-                    </div>
-                </div>
-                {% else %}
-                 <div class="col-2 my-auto">
-                    <span> <a href='/user/'>
-                        <img src="{% static 'images/user.png' %}">
-                    </a> </span>
-                </div>
-                <div class="col-2 my-auto">
-                    <a href='/'> <img src="{% static 'images/home.png' %}"></a>
-                </div>
-                <div class="col-8 my-auto">
-                    <div id="social_share_page" class="row justify-content-end" style="margin-right:10px">
-                        <span id="social_buttons" style="display:none">
-                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://kewalindia.com/">
-                                <img src="{% static 'images/fb_small.png' %}">
-                            </a>
-                            <a target="_blank" href="https://twitter.com/intent/tweet?text=Spread Vocal for Local Movement. &url=https://kewalindia.com/">
-                                <img src="{% static 'images/tw_small.png' %}">
-                            </a>
-                            <a target="_blank" style="margin-right:2px" href="whatsapp://send?text=Spread Vocal for Local Movement. https://kewalindia.com/">
-                                <img src="{% static 'images/wa_small.png' %}">
-                            </a>
-                        </span>
-                        <span onclick="$('#social_buttons').toggle('slow', function(){})" ><img src="{% static 'images/social_share.png' %}"></span>
-                    </div>
-                </div>
-                {% endif %}
-
-
+                <span style="margin:10px 10px 10px 10px"><a href="/about/">About</a>  </span>
+                <span style="margin:10px 10px 10px 10px"> <a href="/contact/">Contact</a> </span>
+                <span style="margin:10px 10px 10px 10px"> Copyright-2021 </span>
             </div>
           </div>
         </footer>
-         <footer class="footer mt-auto py-3" onclick='$("#signup-form").fadeOut("slow", function(){})'>
-          <div class="container">
-            <div class="row top-buffer justify-content-center">
-                <span style="margin:10px 10px 10px 10px"><a href="/about">About</a>  </span>
-                <span style="margin:10px 10px 10px 10px"> <a href="/contact">Contact</a> </span>
-                <span style="margin:10px 10px 10px 10px"> Copyright-2020 </span>
-                <span style="margin:10px 10px 10px 10px"><a href="/money">How we (plan to) Make Money</a> </span>
-            </div>
-          </div>
-        </footer>
+         <!--
          <footer onclick='$("#signup-form").fadeOut("slow", function(){})' id="fixed_footer_space">
           <div class="container">
             <div class="row top-buffer justify-content-center" >
             </div>
           </div>
-        </footer>
+        </footer> -->
         <script>
             $(document).ready(function(){
                 $(".dropdown-toggle").css("vertical-align","-webkit-baseline-middle");
                 $("#fixed_footer_space").height($("#fixed_social").height());
             });
         </script>
-
-    <div class="row justify-content-center signup-form" id="signup-form" style="left: 50%;top: 50%;transform: translate(-50%, -50%);;max-width:500px;border:2px solid black;display:none; position:fixed; z-index:9999;background-color:white">
-
-        <form action="" method="post">
-            <div class="row justify-content-center">
-                <img src="{% static 'images/ki_logo_small.png' %}">
-            </div>
-             <div class="row justify-content-center" style="height:10px">
-             </div>
-            <div class="ribbon ribbon-top-right" style="z-index:100"><span class=""><small onclick='$("#signup-form").fadeOut("slow", function(){})'>X</small></span></div>
-                <p style="display:none" class="hint-text">Sign up with your social media account or email address</p>
-                <div  class="social-btn text-center">
-                    <!--<a href="#" class="btn btn-primary btn-lg"><i class="fa fa-facebook"></i> Facebook</a>
-                    <a href="#" class="btn btn-info btn-lg"><i class="fa fa-twitter"></i> Twitter</a>--->
-                    <img src="{% static 'images/google_sign_in.png' %}">
-                </div>
-                <div class="or-seperator justify-content-center"><b>or</b></div>
-            <div class="form-group">
-                <div id="email_check"></div>
-                <input type="email" id="email" name="email" onblur="check_email(this)" placeholder="Email Address" class="form-control input-lg" required="required">
-            </div>
-            <div class="form-group">
-                <input type="password" id="password" class="form-control input-lg" name="password" placeholder="Password" required="required">
-            </div>
-            <!--<div class="form-group">
-                <input type="password" class="form-control input-lg" name="password" placeholder="Password" required="required">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control input-lg" name="confirm_password" placeholder="Confirm Password" required="required">
-            </div>  -->
-            <div class="form-group">
-                <button type="button" id="signup_button" class="btn btn-success btn-lg btn-block signup-btn" onclick="signup()">Sign In</button>
-            </div>
-            <div>
-                <small><a href="/accounts/password/reset/">Forgot Password?</a></small>
-                <small><br>With login, you can save your fav products, add made in india products to site, stay in touch and more...</small>
-            </div>
-        </form>
-        <!--<div class="text-center">Already have an account? <a href="#">Login here</a></div>-->
-    </div>
 
     <style>
         .dropdown-submenu {

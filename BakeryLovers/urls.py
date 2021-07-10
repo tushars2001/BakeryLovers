@@ -17,14 +17,19 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path, include, re_path
 from .auth.views import logout, login_user
+from .home.views import about, contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('BakeryLovers.home.urls')),
+    path('classes/', include('BakeryLovers.home.urls')),
     path('administration/', include('BakeryLovers.admin.urls')),
     path('login/', login_user),
     path('auth/', include('BakeryLovers.auth.urls')),
     path('my-account/', include('BakeryLovers.auth.urls')),
     path('my/', include('BakeryLovers.auth.urls')),
     path('logout/', logout),
+    path('gallery/', include('BakeryLovers.home.urls')),
+    path('about/', about),
+    path('contact/', contact),
 ]

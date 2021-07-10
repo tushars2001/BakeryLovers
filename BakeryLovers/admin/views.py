@@ -6,13 +6,16 @@ import validate_email
 import json
 from django.db import DatabaseError, IntegrityError
 from .models import isInt
+from django.contrib.admin.views.decorators import staff_member_required
 # Create your views here.
 
 
+@staff_member_required(login_url='/login/?message=You cannot access this.')
 def home(request):
     return render(request, 'home-admin.html')
 
 
+@staff_member_required
 def create_session(request):
     ret = {'status': 'ok', 'message': ''}
     fields = {}
@@ -35,6 +38,7 @@ def create_session(request):
     return render(request, 'create-session.html', {'formFields': fields, 'ret': ret})
 
 
+@staff_member_required
 def view_sessions(request):
 
     data = {}
@@ -43,6 +47,7 @@ def view_sessions(request):
     return render(request, 'view-session.html', {'data': data})
 
 
+@staff_member_required
 def select_session(request):
 
     data = {}
@@ -51,6 +56,7 @@ def select_session(request):
     return render(request, 'select-session.html', {'data': data})
 
 
+@staff_member_required
 def view_accounts(request):
 
     data = {}
@@ -59,6 +65,7 @@ def view_accounts(request):
     return render(request, 'view-accounts.html', {'data': data})
 
 
+@staff_member_required
 def view_session_students(request):
     data = {}
     session = {}
@@ -71,6 +78,7 @@ def view_session_students(request):
     return render(request, 'view-session-students.html', {'data': data, 'session': session})
 
 
+@staff_member_required
 def assign_students(request):
     data = {}
     if request.method == 'POST' and 'sessionid' in request.POST and isInt(request.POST['sessionid']):
@@ -83,6 +91,7 @@ def assign_students(request):
     })
 
 
+@staff_member_required
 def session_students(request):
     data = {}
     ret = {}
@@ -97,6 +106,7 @@ def session_students(request):
     })
 
 
+@staff_member_required
 def create_account(request):
     ret = {'status': 'ok', 'message': ''}
 
