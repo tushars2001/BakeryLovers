@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin Create Account</title>
-    <script>
-        function validateCreateAccount(){
-            return true;
-        }
-    </script>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
 <h1>Create Account</h1>
 {{ ret.message }}
 <form action="" method="post">
@@ -46,5 +37,4 @@
     </form>
     <span style="margin:5px 5px 5px 5px"><a href="reset-password">Reset Password</a> </span>
     <span style="margin:5px 5px 5px 5px"><a href="login">Login</a></span>
-</body>
-</html>
+{% endblock %}

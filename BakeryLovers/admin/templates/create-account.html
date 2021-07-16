@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin Create Account</title>
-    <script>
-        function validateCreateAccount(){
-            return true;
-        }
-    </script>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
 {% include 'admin_menu.html' %}
+<script>
+    function validateCreateAccount(){
+        return true;
+    }
+</script>
 <h1>Create Account</h1>
 {{ ret.message }}
 <form action="" method="post">
@@ -27,5 +23,4 @@
 
 
 </form>
-</body>
-</html>
+{% endblock %}

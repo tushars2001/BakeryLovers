@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin View Session</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
 {% include 'admin_menu.html' %}
 <h1>View Students in Session - {{session.data.session_details.0.title}}</h1>
 <table border="1">
@@ -33,6 +29,4 @@
         {% endfor %}
     </tbody>
 </table>
-
-</body>
-</html>
+{% endblock %}

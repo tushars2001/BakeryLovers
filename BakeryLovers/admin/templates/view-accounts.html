@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin View Session</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
 {% include 'admin_menu.html' %}
 <h1>View Accounts</h1>
 <table border="1">
@@ -34,5 +30,4 @@
     </tbody>
 </table>
 
-</body>
-</html>
+{% endblock %}

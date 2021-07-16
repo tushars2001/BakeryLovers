@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin View Session</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
 {% include 'admin_menu.html' %}
 <h2>{{ret.message}}</h2>
 <h1>Select Session to Assign Students</h1>
@@ -42,5 +38,4 @@
     </tbody>
 </table>
 
-</body>
-</html>
+{% endblock %}
