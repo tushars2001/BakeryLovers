@@ -3,4 +3,24 @@
 {% block content %}
 {% include 'auth_menu.html' %}
 <h1>My Enrollments</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for session in data.data.session_details %}
+            <tr>
+                <td>{{session.title}}</td>
+                <td>{{session.startdt}}</td>
+                <td>{{session.enddt}}</td>
+                <td>{{session.details}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

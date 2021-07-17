@@ -22,7 +22,7 @@
         {% for account in data.data.account_details %}
             <tr>
                 <td>
-                        <input type="checkbox" name="username" value="{{account.username}}">
+                        <input type="checkbox" name="username" value="{{account.username}}" {% if account.is_present %} checked {% endif %}>
                         <input type="hidden" name="sessionid">
                 </td>
                 <td>{{account.username}}</td>

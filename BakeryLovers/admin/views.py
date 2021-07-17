@@ -82,7 +82,7 @@ def view_session_students(request):
 def assign_students(request):
     data = {}
     if request.method == 'POST' and 'sessionid' in request.POST and isInt(request.POST['sessionid']):
-        data = models.get_accounts()
+        data = models.get_accounts_with_session(request.POST['sessionid'])
 
     return render(request, 'select-accounts.html', {
         'data': data,
@@ -96,14 +96,12 @@ def session_students(request):
     data = {}
     ret = {}
     data = models.get_sessions()
+    message = "Some Issue! Sorryy!"
     if request.method == 'POST' and 'sessionid' in request.POST and isInt(request.POST['sessionid']) \
             and len(request.POST.getlist('username')):
         ret = models.link_session_students(request.POST['sessionid'], request.POST.getlist('username'))
-    return render(request, 'select-session.html', {
-        'data': data,
-        'sessionid': request.POST['sessionid'],
-        'ret': ret
-    })
+        message = "Students assigned to Session ID: " + request.POST['sessionid']
+    return redirect("/administration/select-session/?message=" + message)
 
 
 @staff_member_required

@@ -129,7 +129,10 @@ def completed_courses(request):
 
 @login_required
 def enrollments(request):
-    return render(request, 'my_enrollments.html')
+    data = {}
+    data = models.get_enrolled_by_account(request.user.username)
+
+    return render(request, 'my_enrollments.html', {'data': data})
 
 
 def certificate(request):

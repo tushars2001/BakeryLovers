@@ -145,6 +145,34 @@ def get_accounts():
     return response
 
 
+def get_accounts_with_session(sessionid):
+    response = {"data": {}, 'status': 200}
+
+    sql = """SELECT a.*, case when recordid is not null then 1 else 0 end is_present FROM bakerylovers.auth_user a 
+    left outer join  bakerylovers.classes c on a.username = c.username and c.sessionid=%(sessionid)s """
+
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(sql, {'sessionid': sessionid})
+            data = dict_fetchall(cursor)
+            cursor.close()
+
+    except OperationalError as e:
+        data = {'error': str(e).split(",")[1].replace("'", ""), 'code': 'DB-INVALID-REQUEST-ADMIN-MODEL-GET-ACCOUNTS'}
+        response['status'] = 400
+
+    except DatabaseError as e:
+        data = {'error': str(e).split(",")[1].replace("'", ""), 'code': 'DB-ADMIN-MODEL-GET-ACCOUNTS'}
+        response['status'] = 500
+
+    if len(data):
+        response['data'] = {'account_details': data}
+    else:
+        response = {"data": {}, 'status': 204}
+
+    return response
+
+
 def get_students(sessionid):
     response = {"data": {}, 'status': 200}
     where = ' where username in (select username from bakerylovers.classes where sessionid = %(sessionid)s)'
@@ -177,6 +205,11 @@ def get_students(sessionid):
 def link_session_students(sessionid, usernames):
     response = {"data": {}, 'status': 'ok', 'message': 'Students assigned to Session ID: ' + sessionid}
     sql_delete = "delete from bakerylovers.classes where sessionid = %(sessionid)s"
+
+    with connection.cursor() as cursor:
+        cursor.execute(sql_delete, {'sessionid': sessionid})
+        cursor.close()
+
     for username in usernames:
         sql = "insert into bakerylovers.classes(sessionid, username) values (%(sessionid)s, %(username)s)"
 
