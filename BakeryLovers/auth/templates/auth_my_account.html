@@ -9,6 +9,7 @@
 {% endif %}
 {% include 'auth_menu.html' %}
 <br><br>
+{{message}}
 <form action="/my/account-update/" method="post">
     {% csrf_token %}
         <table border="1">

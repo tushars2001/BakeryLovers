@@ -1,4 +1,5 @@
-from django.shortcuts import redirect, render, HttpResponse
+import validate_email
+from django.shortcuts import redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.db import DatabaseError, IntegrityError
@@ -11,7 +12,7 @@ from django.http import FileResponse
 from reportlab.pdfgen import canvas
 # Create your views here.
 from reportlab.lib.pagesizes import letter, A4, landscape
-import pdb
+from django.core.mail import send_mail
 from django.conf import settings
 from reportlab.lib.units import inch
 from reportlab.lib.colors import magenta, red, blue
@@ -74,13 +75,72 @@ def account_update(request):
     return redirect('/my/account/')
 
 
+def send_reset_link(email, phone):
+    send_mail(
+        'Password Reset - BakeryLovers.in',
+        'Password Reset Link - ',
+        'drrichajauhari1@gmail.com',
+        [email],
+        fail_silently=True,
+    )
+    return True
+
+
+def check_user(request):
+    message = ''
+
+    if request.method == 'POST' and 'phone' in request.POST:
+        user = User.objects.get(username=request.POST['phone'])
+        if user:
+            if validate_email.validate_email(user.email):
+                send_reset_link(user.email)
+                message = "Reset Link sent to " + user.email
+                return HttpResponse(message)
+            else:
+                return render(request, "auth_reset_password2.html", {"phone": request.POST['phone']})
+        else:
+            message = "User doesn't exists!"
+    else:
+        message = "Invalid Request!"
+    return redirect("/login/reset-password/?message=" + message)
+
+
 def reset_password(request):
-    return render(request, "auth_reset_password.html")
+    context_data = {}
+
+    if request.method == 'POST':
+        if create_account_br(request.POST):
+            try:
+                user = User.objects.get(username=request.POST['phone'])
+                user.set_password(request.POST['password'])
+                user.save()
+                user = User.objects.get(username=request.POST['phone'])
+                if user is not None:
+                    login(request, user)
+                    # Redirect to a success page.
+                    context_data = {"success": "Password Reset! <br>"
+                                               + " You can update profile later and continue to use app from menu."}
+                    return redirect('/my-account/?success=' + context_data['success'])
+                else:
+                    context_data = {"error": "Error Resetting Password"}
+            except IntegrityError:
+                context_data = {"error": "This phone already exists. Try login or resetting password if you forgot."}
+            except DatabaseError:
+                context_data = {"error": "Something Wrong! Database didn't like it."}
+        else:
+            context_data = {"error": "Invalid values provided"}
+    else:
+        if 'message' in request.GET:
+            context_data = {"error": request.GET['message']}
+    return render(request, "auth_reset_password.html", context_data)
 
 
 @login_required
 def my_account(request):
-    return render(request, "auth_my_account.html")
+    message = ''
+    if 'success' in request.GET:
+        message = request.GET['success']
+    return render(request, "auth_my_account.html", {'message': message})
 
 
 def create_account_br(params):

@@ -16,15 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import path, include, re_path
-from .auth.views import logout, login_user
+from .auth.views import logout, login_user, reset_password, check_user
 from .home.views import about, contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', include('BakeryLovers.home.urls')),
     path('classes/', include('BakeryLovers.home.urls')),
     path('administration/', include('BakeryLovers.admin.urls')),
     path('login/', login_user),
+    path('check-user/', check_user),
+    path('login/reset-password/', reset_password),
     path('auth/', include('BakeryLovers.auth.urls')),
     path('my-account/', include('BakeryLovers.auth.urls')),
     path('my/', include('BakeryLovers.auth.urls')),
